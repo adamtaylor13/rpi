@@ -1,6 +1,7 @@
 #include "mcp3008Spi.h"
 #include <string.h>
 #include <QtQml>
+#include <QtQml/QQmlExtensionPlugin>
 
 using namespace std;
 /**********************************************************
@@ -147,6 +148,5 @@ mcp3008Spi::~mcp3008Spi(){
 SpiPlugin::registerTypes(const char *uri) {
    // Register the class Directory into QML as a "Directory" type version 1.0
    // @uri SpiPlugin
-   // qmlRegisterType<Directory>(uri, 1, 0, "Directory");
-   // qmlRegisterType<File>(uri, 1, 0, "File");
+   qmlRegisterType<mcp3008Spi>(uri, 1, 0, "mcp3008Spi");
 }
