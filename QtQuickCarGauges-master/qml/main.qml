@@ -15,6 +15,7 @@ Window
         Component.onCompleted: forceActiveFocus();
 
         property real randVal : 0;
+        property real inputValue : 0;
 
         Keys.onSpacePressed:
         {
