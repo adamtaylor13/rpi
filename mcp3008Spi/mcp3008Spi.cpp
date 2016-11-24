@@ -1,5 +1,7 @@
 #include "mcp3008Spi.h"
 #include <string.h>
+#include <QtQml>
+
 using namespace std;
 /**********************************************************
  * spiOpen() :function is called by the constructor.
@@ -142,3 +144,9 @@ mcp3008Spi::~mcp3008Spi(){
     this->spiClose();
 }
 
+SpiPlugin::registerTypes(const char *uri) {
+   // Register the class Directory into QML as a "Directory" type version 1.0
+   // @uri SpiPlugin
+   // qmlRegisterType<Directory>(uri, 1, 0, "Directory");
+   // qmlRegisterType<File>(uri, 1, 0, "File");
+}

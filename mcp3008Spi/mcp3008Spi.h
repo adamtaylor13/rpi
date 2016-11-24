@@ -33,14 +33,20 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
+#include <QtQml/QQmlExtensionPlugin>
 
-class mcp3008Spi{
+class mcp3008Spi : public QQmlExtensionPlugin {
+
+   Q_OBJECT
+   Q_PLUGIN_METADATA(IID "org.qt-project.QmlExtensionPlugin.SpiPlugin")
+   Q_PROPERTY(QString inputValue READ spiWriteRead NOTIFY spiWriteRead)
 
 public:
     mcp3008Spi();
     mcp3008Spi(std::string devspi, unsigned char spiMode, unsigned int spiSpeed, unsigned char spibitsPerWord);
     ~mcp3008Spi();
     int spiWriteRead( unsigned char *data, int length);
+    void registerTypes(const char *uri);
 
 private:
     unsigned char mode;
